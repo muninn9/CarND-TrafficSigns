@@ -101,10 +101,14 @@ with tf.Session() as sess:
         read = read_image(image)
         read = [read]
         predictions = sess.run(logits, feed_dict={x: read, keep_prob: 1.})
-        # predictions = LeNet(read, 1.)
-        prediction = np.array(predictions[0]).argmax()
+        # prediction = np.array(predictions[0]).argmax()
+        top_3_predictions = sess.run(tf.nn.top_k(tf.constant(predictions[0]), k=3))
         with open('signnames.csv', 'r') as f:
             reader = csv.reader(f)
             sign_list = list(reader)
 
-        print(sign_list[prediction + 1])
+        for prediction in top_3_predictions.indices:
+            print(sign_list[prediction + 1])
+
+        print('-----------------------------------')
+
