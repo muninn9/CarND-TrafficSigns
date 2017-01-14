@@ -69,8 +69,9 @@ def LeNet(x, dropout):
     fc3_W = tf.Variable(tf.truncated_normal(shape=(84, 43), mean=mu, stddev=sigma))
     fc3_b = tf.Variable(tf.zeros(43))
     logits = tf.matmul(fc2, fc3_W) + fc3_b
+    probabilities = tf.nn.softmax(logits)
 
-    return logits, fc2_W, fc3_W, fc2_b, fc3_b
+    return probabilities, fc2_W, fc3_W, fc2_b, fc3_b
 
 
 #######################################################################################################
@@ -84,7 +85,7 @@ keep_prob = tf.placeholder(tf.float32)
 #######################################################################################################
 # PREDICTION
 
-logits, fc2_W, fc3_W, fc2_b, fc3_b = LeNet(x, keep_prob)
+probabilities, fc2_W, fc3_W, fc2_b, fc3_b = LeNet(x, keep_prob)
 image_dir = os.listdir("my_signs/")
 saver = tf.train.Saver()
 
@@ -100,7 +101,7 @@ with tf.Session() as sess:
     for image in image_dir:
         read = read_image(image)
         read = [read]
-        predictions = sess.run(logits, feed_dict={x: read, keep_prob: 1.})
+        predictions = sess.run(probabilities, feed_dict={x: read, keep_prob: 1.})
         # prediction = np.array(predictions[0]).argmax()
         top_3_predictions = sess.run(tf.nn.top_k(tf.constant(predictions[0]), k=3))
         with open('signnames.csv', 'r') as f:
