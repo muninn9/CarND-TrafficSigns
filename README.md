@@ -2,11 +2,12 @@
 
 <b>ANSWER 1</b><br>
 <i>Describe how you preprocessed the data. Why did you choose that technique?</i><br><br>
-To preprocess the data all I did was take 20% of the training set as the validation set then I shuffled the X and y training sets. I tried subtracting the mean from the images to zero center them by doing this:<br><br> 
+I cannot "provide a good concise explanation for the preprocessing techniques used" because I did not preprocess the data. This is because all of the preprocessing techniques I tried did not improve the accuracy. 
+I tried subtracting the mean from the images to zero center them by doing this:<br><br> 
 
 &nbsp;&nbsp;&nbsp;&nbsp; X_train = np.subtract(X_train, np.mean(X_train, axis=0)) <br><br>
 
-but it did not improve the accuracy. I found that another common preprocessing technique is to divide this by the standard deviation but because all the pixel values are in the same range this was not necessary.  
+but it did not improve the accuracy. If I did use this it would be because it usually  I found that another common preprocessing technique is to divide this by the standard deviation but because all the pixel values are in the same range this was not necessary.  
 
 <br><br><b>ANSWER 2</b><br>
 <i>Describe how you set up the training, validation and testing data for your model. Optional: If you generated additional data, how did you generate the data? Why did you generate the data? What are the differences in the new dataset (with generated data) from the original dataset?</i><br><br>
