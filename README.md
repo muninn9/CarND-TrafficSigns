@@ -59,4 +59,4 @@ Based on the 5 input signs the accuracy was 100% and the prediction accuracy on 
 
 <br><br><b>ANSWER 8</b><br>
 <i>Use the model's softmax probabilities to visualize the certainty of its predictions, tf.nn.top_k could prove helpful here. Which predictions is the model certain of? Uncertain? If the model was incorrect in its initial prediction, does the correct prediction appear in the top k? (k should be 5 at most)</i><br><br>
-This is also in 'predict.py'. The correct prediction always appears in the top 3.
+View the visualization in 'predict.py'. The correct prediction always appears in the top 3 with 1 or nearly 1 softmax probability.
