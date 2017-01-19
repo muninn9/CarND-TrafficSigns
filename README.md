@@ -2,12 +2,12 @@
 
 <b>ANSWER 1</b><br>
 <i>Describe how you preprocessed the data. Why did you choose that technique?</i><br><br>
-I cannot "provide a good concise explanation for the preprocessing techniques used" because I did not preprocess the data. This is because all of the preprocessing techniques I tried did not improve the accuracy. 
+I cannot "provide a good concise explanation for the preprocessing techniques used" because I did not preprocess the data.  This is because all of the preprocessing techniques I tried did not improve the accuracy. However, I can provide a good concise explanation for the preprocessing techniques that are commonly used and that I tried to use. 
 I tried subtracting the mean from the images to zero center them by doing this:<br><br> 
 
 &nbsp;&nbsp;&nbsp;&nbsp; X_train = np.subtract(X_train, np.mean(X_train, axis=0)) <br><br>
 
-but it did not improve the accuracy. If I did use this it would be because it usually  I found that another common preprocessing technique is to divide this by the standard deviation but because all the pixel values are in the same range this was not necessary.  
+but it did not improve the accuracy. This works by computing the mean value of every pixel in the training set and subtracting it out. If I did use this it would be because it usually standardizes the data. Because it centers all of the data points of each image around the origin, it puts all the images on a level playing field thus making it easier for the classifier to learn. It is also common to do per-channel mean subtraction. This works by computing the mean of each red, blue, and green channel which yields 3 numbers representing the mean of each channel. These are then subtracted out.  I found that another common preprocessing technique is to divide the mean by the standard deviation but because all the pixel values are in the same range this was not necessary. Other common preprocessing techniques are PCA and whitening but they are not usually used with images.
 
 <br><br><b>ANSWER 2</b><br>
 <i>Describe how you set up the training, validation and testing data for your model. Optional: If you generated additional data, how did you generate the data? Why did you generate the data? What are the differences in the new dataset (with generated data) from the original dataset?</i><br><br>
