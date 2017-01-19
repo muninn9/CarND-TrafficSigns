@@ -22,16 +22,23 @@ Below are the input and output dimensions of each layer. I determined the convol
 
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Conv:</b>(input_height - filter_height + 2 * P)/S + 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Conv. dimensions:</b>HXWXD where D= # of filters<br>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>Pooling:</b>(input_height - filter_height)/S + 1<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Pooling:</b>(input_height - filter_height)/S + 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Pool dimensions:</b>HXWXD where D= input dimension<br>
 
 <b>LAYER 1:</b> <br>
-&nbsp;&nbsp; Convolutional: Input= 32X32X3<br>
+&nbsp;&nbsp; Convolutional: Input= 32X32X3; Output: 28X28X10<br>
 &nbsp;&nbsp; Pooling: Input= 28X28X10; Output= 14X14X10<br>
-<b>LAYER 2:</b> Pooling. Input= 28X28X10; Output= 14X14X10<br>
-&nbsp;&nbsp; Convolutional: Input= 32X32X3<br>
-&nbsp;&nbsp; Pooling: Input= 28X28X10; Output= 14X14X10<br>
-<b>LAYER 3:</b> Pooling. Input= 27X27X10<br>
+<b>LAYER 2:</b> <br>
+&nbsp;&nbsp; Convolutional: Input= 14X14X10; Output: 10X10X16<br>
+&nbsp;&nbsp; Pooling: Input= 10X10X16; Output= 5X5X16<br>
+<b>LAYER 3:</b> <br>
+&nbsp;&nbsp; Fully Connected: Input= 400 (5X5X16); Output: 120<br>
+<b>LAYER 4:</b> <br>
+&nbsp;&nbsp; Fully Connected: Input= 120; Output: 84<br>
+<b>LAYER 5:</b> <br>
+&nbsp;&nbsp; Fully Connected: Input= 84; Output: 43<br>
+
+
 
 
 <br><br><b>ANSWER 4</b><br>
