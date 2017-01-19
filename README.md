@@ -23,7 +23,7 @@ Below are the input and output dimensions of each layer. I determined the convol
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Conv:</b>(input_height - filter_height + 2 * P)/S + 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Conv. dimensions:</b>HXWXD where D= # of filters<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <b>Pooling:</b>(input_height - filter_height)/S + 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp; <b>Pool dimensions:</b>HXWXD where D= input dimension<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Pool dimensions:</b>HXWXD where D= input dimension<br><br>
 
 <b>LAYER 1:</b> <br>
 &nbsp;&nbsp; Convolutional: Input= 32X32X3; Output: 28X28X10<br>
