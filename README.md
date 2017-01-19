@@ -51,7 +51,7 @@ I began with the LeNet architecture. This is what was recommended and it was giv
 
 <br><br><b>ANSWER 6</b><br>
 <i>Choose five candidate images of traffic signs and provide them in the report. Are there any particular qualities of the image(s) that might make classification difficult? It could be helpful to plot the images in the notebook.</i><br><br>
-This code is in 'predict.py'. It classifies all the images correctly. The images are pretty similar to the images in the trianing set so there should't be much difficulty in classifying them. I think certain edges and subtle differences in shape might give it a hard time. It seems to have difficulty in distinguishing a stop sign from a "do not enter" sign.
+This code is in 'predict.ipynb'. It classifies all the images correctly. The images are pretty similar to the images in the trianing set so there should't be much difficulty in classifying them. I think certain edges and subtle differences in shape might give it a hard time. It seems to have difficulty in distinguishing a stop sign from a "do not enter" sign.
 
 <br><br><b>ANSWER 7</b><br>
 <i>Is your model able to perform equally well on captured pictures when compared to testing on the dataset? The simplest way to do this check the accuracy of the predictions. For example, if the model predicted 1 out of 5 signs correctly, it's 20% accurate.</i><br><br>
