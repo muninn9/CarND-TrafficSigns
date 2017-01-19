@@ -18,10 +18,20 @@ The train, validation, and test sets were created using the following line of co
 <br><br><b>ANSWER 3</b><br>
 <i>What does your final architecture look like? (Type of model, layers, sizes, connectivity, etc.) For reference on how to build a deep neural network using TensorFlow, see Deep Neural Network in TensorFlow from the classroom.</i><br><br>
 I used a LeNet model with two layers and filter sizes of 5X5. There are three fully connected layers. I ended up using both average pooling and max pooling which improved the accuracy. I also added dropout regularization to the convolutional layers which improved accuracy.<br><br>
-Below are the input and output dimensions of each layer. I determined the convolutional and pooling output layers using these formulas:<br><br>
+Below are the input and output dimensions of each layer. I determined the convolutional and pooling dimensions using these formulas:<br><br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; <b>Conv:</b>((input_height * input_depth) - (filter_height * filter_depth) + 2 * P)/(S * 2) + 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp; <br>Pooling:</b>(input_height - filter_height)/S + 1
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Conv:</b>(input_height - filter_height + 2 * P)/S + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Conv. dimensions:</b>HXWXD where D= # of filters<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Pooling:</b>(input_height - filter_height)/S + 1<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Pool dimensions:</b>HXWXD where D= input dimension<br>
+
+<b>LAYER 1:</b> <br>
+&nbsp;&nbsp; Convolutional: Input= 32X32X3<br>
+&nbsp;&nbsp; Pooling: Input= 28X28X10; Output= 14X14X10<br>
+<b>LAYER 2:</b> Pooling. Input= 28X28X10; Output= 14X14X10<br>
+&nbsp;&nbsp; Convolutional: Input= 32X32X3<br>
+&nbsp;&nbsp; Pooling: Input= 28X28X10; Output= 14X14X10<br>
+<b>LAYER 3:</b> Pooling. Input= 27X27X10<br>
 
 
 <br><br><b>ANSWER 4</b><br>
@@ -29,7 +39,7 @@ Below are the input and output dimensions of each layer. I determined the convol
 The type of optimizer I ended up using was the Adam optimizer. This because it has been proven to be the best in current research. After adding dropout, I tried higher epoch values and 30 ended up giving me satisfactory accuracy. I think this is because dropout creates sparser features so it takes longer to learn the images. Since it can't rely on particular features it must figure out alternative ways or paths of understanding the image. The benefit of this is that it gives a more complete and resilient understanding of the images.
 
 <br><br><b>ANSWER 5</b><br>
-<i>What approach did you take in coming up with a solution to this problem? It may have been a process of trial and error, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think this is suitable for the current problem.</i><br><br>
+<br><i>What approach did you take in coming up with a solution to this problem? It may have been a process of trial and error, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think this is suitable for the current problem.</i><br><br>
 I began with the LeNet architecture. This is what was recommended and it was giving pretty good accuracy. Then through trial and error I tried modifying it with regularization, normalization, and different types of pooling. First I tried adding average pooling in addition to max pooling as current research has proven that to be most effective. It did improve accuracy. Then, I determined that I must have been overfitting because I had high validation accuracy but lower test accuracy. So in this case regularization made sense. That is why I added drop out. It improved accuracy but I was still overfitting due to a high validation accuracy and lower test accuracy. So, I applied L2 regularization and this also helped a little. However, I still think I'm overfitting and I think perhaps augmenting the data could improve the test accuracy because the model wouldn't be so specific and it would become more generalized which would allow a comprehension of new inputs.
 
 <br><br><b>ANSWER 6</b><br>
