@@ -17,7 +17,12 @@ The train, validation, and test sets were created using the following line of co
 
 <br><br><b>ANSWER 3</b><br>
 <i>What does your final architecture look like? (Type of model, layers, sizes, connectivity, etc.) For reference on how to build a deep neural network using TensorFlow, see Deep Neural Network in TensorFlow from the classroom.</i><br><br>
-I used a LeNet model with two layers and filter sizes of 5X5. There are three fully connected layers. I ended up using both average pooling and max pooling which improved the accuracy. I also added dropout regularization to the convolutional layers which improved accuracy.
+I used a LeNet model with two layers and filter sizes of 5X5. There are three fully connected layers. I ended up using both average pooling and max pooling which improved the accuracy. I also added dropout regularization to the convolutional layers which improved accuracy.<br><br>
+Below are the input and output dimensions of each layer. I determined the convolutional and pooling output layers using these formulas:<br><br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; <b>Conv:</b>((input_height * input_depth) - (filter_height * filter_depth) + 2 * P)/(S * 2) + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp; <br>Pooling:</b>(input_height - filter_height)/S + 1
+
 
 <br><br><b>ANSWER 4</b><br>
 <i>How did you train your model? (Type of optimizer, batch size, epochs, hyperparameters, etc.)</i><br><br>
